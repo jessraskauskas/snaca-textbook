@@ -20,7 +20,7 @@ library( reshape2 )  # for reshaping the matrix data for a plot
 
 # Degree Centrality {.unnumbered}
 
-When we say a *node* is "central", what do we mean conceptually? As a crime analyst, you probably already know that identifying and understanding who holds the most influence within a group is crucial for effective intervention. For example, in a study of white-collar crime networks, @smith2012corporatefraud identified individuals most connected to others in a corporate fraud scheme, revealing key facilitators who had a disproportionate influence over the flow of information and resources. This allowed the researchers to pinpoint the central figures within the fraud ring, enabling targeted investigative efforts. This chapter will guide you through the conceptualization of **centrality** as it pertains to *degree* centrality, demonstrating how to calculate degree centrality scores for individual nodes and how to assess the overall degree centralization of an entire network. By gaining a conceptual understanding of centrality, and understanding the operationalization of centrality through degree centrality, crime analysts can more effectively identify key targets for investigation and disruption in criminal organizations.
+When we say a *node* is "central", what do we mean conceptually? As a crime analyst, you probably already know that identifying and understanding who holds the most influence within a group is crucial for effective intervention. For example, in a study of white-collar crime networks, @smith2012corporatefraud identified individuals most connected to others in a corporate fraud scheme, revealing key facilitators who had a disproportionate influence over the flow of information and resources. This allowed the researchers to pinpoint the central figures within the fraud ring, enabling targeted investigative efforts. This chapter will guide you through the conceptualization of **centrality** as it pertains to *degree* centrality, demonstrating how to calculate degree centrality scores for individual nodes and how to assess the overall degree centralization of an entire network. By gaining a conceptual understanding of centrality and understanding the operationalization of centrality through degree centrality, crime analysts can more effectively identify key targets for investigation and disruption in criminal organizations.
 
 By the end of this chapter, you should be able to:
 
@@ -136,7 +136,7 @@ d_graph <-
 
 ## Case Study: Disrupting Hate Speech Online
 
-As has been noted by many concerned citizens and scholars, hate speech in online forums has become a salient issue. If you are an organization who hosts such sites, what can you do to reduce hate speech? One approach is to "deplatform" particular individuals. This approach is a type of *strategic network disruption* whereby select individuals are removed from the network with the goal of reducing hate speech among those who are still using the platform. The logic is that these individuals are critical links that connect others and their absence will reduce hateful content. Does it work?
+As has been noted by many concerned citizens and scholars, hate speech in online forums has become a salient issue. If you are an organization that hosts such sites, what can you do to reduce hate speech? One approach is to "deplatform" particular individuals. This approach is a type of *strategic network disruption* whereby select individuals are removed from the network with the goal of reducing hate speech among those who are still using the platform. The logic is that these individuals are critical links that connect others, and their absence will reduce hateful content. Does it work?
 
 This is the question that @thomas2023disrupting sought to address when they identified hate organizations on Facebook and evaluated whether removing central individuals reduced hate speech in those organizations.
 
@@ -150,7 +150,7 @@ Now, let's start from the beginning and really be precise with our thinking abou
 
 ## Concepts and Operationalization
 
-When we say a *node* is "central", what do we mean conceptually? If your thinking what I'm thinking, it probably has something to to with a node being **important**. When we talk about centrality, then we are talking about the importance of a node.
+When we say a *node* is "central", what do we mean conceptually? If you're thinking what I'm thinking, it probably has something to do with a node being **important**. When we talk about centrality, we are talking about the importance of a node.
 
 Speaking generally, network position should be interesting and important:
 
@@ -171,7 +171,7 @@ Here are three typical ways of thinking about centrality:
 -   Betweenness
 -   Closeness
 
-In this and subsequent chapters, we will discuss each of these concepts, how they are conceptualized and how they are operationalized in social network analysis.
+In this and subsequent chapters, we will discuss each of these concepts, how they are conceptualized, and how they are operationalized in social network analysis.
 
 It is also important to distinguish between whether we are talking about the centrality of a <u>node</u> or the centrality of a <u>graph</u>:
 
@@ -185,7 +185,7 @@ As with prior chapters, we will start with undirected graphs and then move to di
 
 ### Degree Centrality
 
-In an undirected binary graph, *degree centrality* measures the extent to which a node connects to all other nodes in a network. In other words, the number of edges incident with a node. This is symbolized as: $d(n_i)$ and this reads "degree for the $i_{th}$ node". For an undirected binary graph, the degree, $d(n_i)$, is simply the row **or** column sum. We can express this formally as:
+In an undirected binary graph, *degree centrality* measures the extent to which a node connects to all other nodes in a network. In other words, the number of edges incident on a node. This is symbolized as: $d(n_i)$ and this reads "degree for the $i_{th}$ node". For an undirected binary graph, the degree, $d(n_i)$, is simply the row **or** column sum. We can express this formally as:
 
 -   $C_D(n_i) = \sum_j x_{ij} = \sum_j x_{ji}$
 
@@ -228,7 +228,7 @@ grid.arrange( u_graph, adj_to_plot, ncol = 2 )
 
 ```
 
-Recall from above that in an undirected network the degree centrality score is either the sum of the row **or** the sum of the column. Let's calculate the score for Jen. If we look across the row (that is, horizontally) we see that the cell values are: 0, 1, 0, 0, 0. If we add these we get 1. That is, Jen's degree centrality score is 1. If we look across the column, we get the same information: 0, 1, 0, 0, 0. Put another way: $C_D(Jen) = \sum_j x_{ij} = x_{Jen, Tom} + x_{Jen, Bob} + x_{Jen, Leaf} + x_{Jen, Jim} = 1 + 0 + 0 + 0 = 1$.
+Recall from above that in an undirected network, the degree centrality score is either the sum of the row **or** the sum of the column. Let's calculate the score for Jen. If we look across the row (that is, horizontally), we see that the cell values are: 0, 1, 0, 0, 0. If we add these, we get 1. That is, Jen's degree centrality score is 1. If we look across the column, we get the same information: 0, 1, 0, 0, 0. Put another way: $C_D(Jen) = \sum_j x_{ij} = x_{Jen, Tom} + x_{Jen, Bob} + x_{Jen, Leaf} + x_{Jen, Jim} = 1 + 0 + 0 + 0 = 1$.
 
 Jen's degree centrality score is 1, meaning that she has 1 tie. Notice in the calculation that we didn't include $x_{ii}$ which is $x_{Jen, Jen}$ because this is zero. Be careful when you do the calculations that you don't confuse these. Since self-nominations are usually set to zero, this is not a problem when we use the row or column totals. Just something to keep in mind.
 
@@ -241,15 +241,15 @@ What about the rest of the nodes? Let's do the calculations:
 
 #### Standardization
 
-Actor degree centrality not only reflects each node's connectivity to other nodes but also depends on the size of the network, *g*. Larger networks will have a higher maximum possible degree centrality value. This is called a *raw* score. How can we use nodes from different sized networks?
+Actor degree centrality not only reflects each node's connectivity to other nodes but also depends on the size of the network, *g*. Larger networks will have a higher maximum possible degree centrality value. This is called a *raw* score. How can we use nodes from different-sized networks?
 
-Standardize! If we want to compare nodes in different sized networks, then we just take into account the number of nodes and the maximum possible nodes to which *i* could be connected. In an undirected graph, this is *g-1*.
+Standardize! If we want to compare nodes in different-sized networks, then we just take into account the number of nodes and the maximum possible nodes to which *i* could be connected. In an undirected graph, this is *g-1*.
 
 Thus, we can calculate a standardized degree centrality for an undirected graph as:
 
 $$C'_D(n_i) =  \dfrac{C_D(n_i)}{g-1} = \dfrac{\sum\limits_{j} x_{ij}}{g-1}$$
 
-What this gives us the proportion of the network members with ties to actor *i*. A convenient feature of standardizing in this way is that it means the index varies between 0 (no connections; isolate) to 1 (ties to every actor). Again, let's take a look at our example network:
+What this gives us is the proportion of the network members with ties to actor *i*. A convenient feature of standardizing in this way is that it means the index varies between 0 (no connections; isolate) and 1 (ties to every actor). Again, let's take a look at our example network:
 
 ```{r}
 
@@ -306,12 +306,12 @@ $$C_A =  \dfrac{\sum\limits_{i=1}^g [C_A(n^*) - C_A(n_i)]}{max \sum\limits_{i=1}
 
 Again, this may look imposing, but we can decompose it to see what it is doing:
 
--   $C_A(n^*)$ is the largest degree centrality scored observed in the graph
+-   $C_A(n^*)$ is the largest degree centrality score observed in the graph
 -   $C_A(n_i)$ is the degree centrality score for node *i*
 -   $\sum\limits_{i=1}^g [C_A(n^*) - C_A(n_i)]$ simply takes the sum of deviations for each node from the largest value
 -   Finally, we take that sum and divide it by $max \sum\limits_{i=1}^g [C_A(n^*) - C_A(n_i)]$, which is the theoretical maximum sum possible of differences
 
-This should look familiar, recall from your introductory statistics course that the standard deviation of a variable, *y* is:
+This should look familiar. Recall from your introductory statistics course that the standard deviation of a variable, *y,* is:
 
 $$SD_y = \sqrt{\frac{\sum{(y_i - \mu)}^2}{N}}$$
 
@@ -346,7 +346,7 @@ $$C_D =  \dfrac{\sum\limits_{i=1}^g [C_D(n^*) - C_D(n_i)]}{[(g-1)(g-2)]} = \dfra
 
 So, the degree centralization score for our example graph is 0.417. *What does this mean?*
 
-When degree centrality is evenly dispersed, meaning that all nodes have the same degree, then the numerator in the equation will be zero and the quotient will be close to 0. When there is considerable inequality in the degree centrality scores between nodes, the quotient will be closer to 1. Thus, closer to 1 indicates that the graph is hierarchically structured and closer to 0 means that the graph is more decentralized.
+When degree centrality is evenly dispersed, meaning that all nodes have the same degree, then the numerator in the equation will be zero, and the quotient will be close to 0. When there is considerable inequality in the degree centrality scores between nodes, the quotient will be closer to 1. Thus, closer to 1 indicates that the graph is hierarchically structured, and closer to 0 means that the graph is more decentralized.
 
 We can see this by examining two additional undirected networks:
 
@@ -429,7 +429,7 @@ Jen's <u>indegree</u> is 0 because she doesn't receive *any* ties from other nod
 
 #### Outdegree
 
-Let's now look at the outdegree. With indegree, we are looking at the ties coming into a node. But, with outdegree we are doing the opposite, looking at the ties that are coming from the node. As stated above, Outdegree, $CO(n_i)$, measures the number of ties that *i* sends. For the sociomatrix $X_{ij}$, the outdegree for *i* is the **row** sum $C_O(n_i) = \sum_j x_{ij}$. So, to get the outdegree for each node, we just sum over the rows. Recall that rows are horizontal.
+Let's now look at the outdegree. With indegree, we are looking at the ties coming into a node. But, with outdegree we are doing the opposite, looking at the ties that are coming from the node. As stated above, outdegree, $CO(n_i)$, measures the number of ties that *i* sends. For the sociomatrix $X_{ij}$, the outdegree for *i* is the **row** sum $C_O(n_i) = \sum_j x_{ij}$. So, to get the outdegree for each node, we just sum over the rows. Recall that rows are horizontal.
 
 Let's calculate the <u>outdegree</u> for Jen: $C_O(Jen) = \sum_j x_{Jen,j} = x_{Jen,Tom} + x_{Jen,Bob} + x_{Jen,Leaf} + x_{Jen,Jim} = 1+0+0+0 = 1$
 
@@ -484,9 +484,9 @@ We just adjust the *raw* **indegree** scores by standardizing by the denominator
 -   Leaf = $C'_I(Leaf) = \dfrac{2}{4} = 0.50$
 -   Jim = $C'_I(Jim) = \dfrac{2}{4} = 0.50$
 
-How is this to be interpreted? The standardized indegree centrality score gives us is the proportion of the network members for whom node *i* has received a tie. A score of 0.25 for Tom means that Tom received ties from 25% of the nodes that he could potentially have received ties from in the network.
+How is this to be interpreted? The standardized indegree centrality score gives us the proportion of the network members for whom node *i* has received a tie. A score of 0.25 for Tom means that Tom received ties from 25% of the nodes that he could potentially have received ties from in the network.
 
-For the *raw* **outdegreee** scores we do the same:
+For the *raw* **outdegree** scores, we do the same:
 
 -   Jen = $C'_O(Jen) = \dfrac{1}{4} = 0.25$
 -   Tom = $C'_O(Tom) = \dfrac{1}{4} = 0.25$
@@ -494,7 +494,7 @@ For the *raw* **outdegreee** scores we do the same:
 -   Leaf = $C'_O(Leaf) = \dfrac{2}{4} = 0.50$
 -   Jim = $C'_O(Jim) = \dfrac{2}{4} = 0.50$
 
-How is this to be interpreted? The standardized outdegree centrality score gives us is the proportion of the network members for whom node *i* has sent a tie. A score of 0.25 for Tom means that Tom sends ties to 25% of the nodes that he could potentially have sent ties to in the network.
+How is this to be interpreted? The standardized outdegree centrality score gives us the proportion of the network members for whom node *i* has sent a tie. A score of 0.25 for Tom means that Tom sends ties to 25% of the nodes that he could potentially have sent ties to in the network.
 
 ### Mean Degree
 
@@ -541,9 +541,9 @@ $$C_I =  \dfrac{\sum\limits_{i=1}^g [C_I(n^*) - C_I(n_i)]}{[(g-1)(g-1)]} = \dfra
 
 The indegree centralization score for our example graph is 0.438. *What does this mean?*
 
-Recall that when degree centrality is evenly dispersed, meaning that all nodes have the same degree, then the numerator in the equation will be zero and the quotient will be close to 0. When there is considerable inequality in the degree centrality scores between nodes, the quotient will be closer to 1. Thus, closer to 1 indicates that the graph is hierarchically structured and closer to 0 means that the graph is more decentralized.
+Recall that when degree centrality is evenly dispersed, meaning that all nodes have the same degree, the numerator in the equation will be zero, and the quotient will be close to 0. When there is considerable inequality in the degree centrality scores between nodes, the quotient will be closer to 1. Thus, closer to 1 indicates that the graph is hierarchically structured, and closer to 0 means that the graph is more decentralized.
 
-When we introduce directionality, we have to alter our language a bit. When indegree centrality is evenly dispersed, meaning that all nodes receive the same number of ties, then the numerator in the equation will be zero and the quotient will be close to 0. Thus, closer to 1 indicates that the indegrees in the graph are hierarchically structured and closer to 0 means that the indegrees for the graph are more decentralized.
+When we introduce directionality, we have to alter our language a bit. When indegree centrality is evenly dispersed, meaning that all nodes receive the same number of ties, then the numerator in the equation will be zero, and the quotient will be close to 0. Thus, closer to 1 indicates that the indegrees in the graph are hierarchically structured, and closer to 0 means that the indegrees for the graph are more decentralized.
 
 #### Outdegree Centralization
 
@@ -563,11 +563,11 @@ $$C_O =  \dfrac{\sum\limits_{i=1}^g [C_O(n^*) - C_O(n_i)]}{[(g-1)(g-1)]} = \dfra
 
 The outdegree centralization score for our example graph is 0.125. *What does this mean?*
 
-An outdegree centralization score close to 1 indicates that the outdegrees in the graph are hierarchically structured and closer to 0 means that the outdegrees for the graph are more decentralized.
+An outdegree centralization score close to 1 indicates that the outdegrees in the graph are hierarchically structured, and closer to 0 means that the outdegrees for the graph are more decentralized.
 
 ##### Comparing Indegree and Outdegree Centralization
 
-The indegree centralization score, $C_I$, is 0.438 and the outdegree centralization score, $C_O$, is 0.125. *What does the difference tell us?* It tells us that the outdegrees are more decentralized than the indegrees. Put another way, the indegrees are more centralized than are the outdegrees. *Make sense?* Think of it this way: there is more inequality in the way the indegrees are distributed than the way the outdegrees are distributed.
+The indegree centralization score, $C_I$, is 0.438, and the outdegree centralization score, $C_O$, is 0.125. *What does the difference tell us?* It tells us that the outdegrees are more decentralized than the indegrees. Put another way, the indegrees are more centralized than are the outdegrees. *Make sense?* Think of it this way: there is more inequality in the way the indegrees are distributed than in the way the outdegrees are distributed.
 
 <br>
 
@@ -582,4 +582,4 @@ The indegree centralization score, $C_I$, is 0.438 and the outdegree centralizat
 
 ## Summary
 
-In this chapter, we explored the concept of centrality, focusing specifically on degree centrality and its critical role in understanding network structures. We learned that degree centrality measures the number of direct connections a node has within a network, providing insights into which individuals or entities hold the most influence. Through examples like white-collar crime networks and online hate speech deplatforming, we saw how identifying central actors can inform targeted interventions. We also discussed the importance of standardizing degree centrality to compare nodes across different network sizes and examined how centralization reflects the overall structure and hierarchy of a network. Understanding both node-level and graph-level centrality allows crime analysts to more effectively analyze social networks, identify key players, and develop strategies for effective interventions. By mastering these concepts, crime analysts can apply degree centrality to real-world problems, enhancing their investigative capabilities. In the next chapter we will focus on a different conceptualization and operationalization of centrality: *closeness*.
+In this chapter, we explored the concept of centrality, focusing specifically on degree centrality and its critical role in understanding network structures. We learned that degree centrality measures the number of direct connections a node has within a network, providing insights into which individuals or entities hold the most influence. Through examples like white-collar crime networks and online hate speech deplatforming, we saw how identifying central actors can inform targeted interventions. We also discussed the importance of standardizing degree centrality to compare nodes across different network sizes and examined how centralization reflects the overall structure and hierarchy of a network. Understanding both node-level and graph-level centrality allows crime analysts to more effectively analyze social networks, identify key players, and develop strategies for effective interventions. By mastering these concepts, crime analysts can apply degree centrality to real-world problems, enhancing their investigative capabilities. In the next chapter, we will focus on a different conceptualization and operationalization of centrality: *closeness*.
