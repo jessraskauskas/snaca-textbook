@@ -101,7 +101,7 @@ d_graph <-
 
 ## Simple Network Summary
 
-So you have you network data, now what? The next step is to summarize its most critical features, which can guide your analysis. First, consider the size: How *big* is the network? This is the number of nodes involved, giving a sense of its scale. Next, think about how tightly connected the network is---this is the *density*, or the proportion of actual connections relative to all possible ones. Another key question is separation: How fragmented or divided is the network? Understanding its *components* or *subgraphs* can highlight isolated clusters. Finally, consider the network's compactness, or its *diameter*, how far do nodes have to travel through connections to reach others? These four basic measures lay the groundwork for describing and understanding the structure of any network you encounter in your analysis.
+So you have your network data, now what? The next step is to summarize its most critical features, which can guide your analysis. First, consider the size: How *big* is the network? This is the number of nodes involved, giving a sense of its scale. Next, think about how tightly connected the network is---this is the *density*, or the proportion of actual connections relative to all possible ones. Another key question is separation: How fragmented or divided is the network? Understanding its *components* or *subgraphs* can highlight isolated clusters. Finally, consider the network's compactness, or its *diameter*, how far do nodes have to travel through connections to reach others? These four basic measures lay the groundwork for describing and understanding the structure of any network you encounter in your analysis.
 
 ### Size
 
@@ -122,7 +122,7 @@ Of the ties that could exist, what fraction are observed? This is the *density* 
 
 #### Undirected Graph
 
-The density of an **undirected** graph is given by: $$\frac{2L}{g(g-1)}$$ where $L$ is the number of edges and $g$ is the number of nodes. So, if a network has 5 nodes (i.e. $g$ is 5) then we could observe $g(g-1) = 5*(5-1) = 5*4 = 20$ edges. Take a look at the undirected graph below, what is the density?
+The density of an **undirected** graph is given by: $$\frac{2L}{g(g-1)}$$ where $L$ is the number of edges and $g$ is the number of nodes. So, if a network has 5 nodes (i.e. $g$ is 5) then we could observe $g(g-1) = 5*(5-1) = 5*4 = 20$ edges. Take a look at the undirected graph below. What is the density?
 
 ```{r}
 
@@ -130,11 +130,11 @@ u_graph
 
 ```
 
-First we identify the quantities: $L$ is 5 and $g$ is 5. Now, let's just plug through the math: $$\frac{2L}{g(g-1)} = \frac{2*5}{5*(5-1)} = \frac{10}{20} = 0.5$$ So, 0.5, or half, of the ties that could occur in this network did occur.
+First, we identify the quantities: $L$ is 5 and $g$ is 5. Now, let's just plug through the math: $$\frac{2L}{g(g-1)} = \frac{2*5}{5*(5-1)} = \frac{10}{20} = 0.5$$ So, 0.5, or half, of the ties that could occur in this network did occur.
 
 #### Directed Graph
 
-The density of a **directed** graph is given by: $$\frac{L}{g(g-1)}$$ where $L$ is the number of edges and $g$ is the number of nodes. So, if a network has 5 nodes (i.e. $g$ is 5) then we could observe $g(g-1) = 5*(5-1) = 5*4 = 20$ edges. Take a look at the directed graph below, what is the density?
+The density of a **directed** graph is given by: $$\frac{L}{g(g-1)}$$ where $L$ is the number of edges and $g$ is the number of nodes. So, if a network has 5 nodes (i.e. $g$ is 5) then we could observe $g(g-1) = 5*(5-1) = 5*4 = 20$ edges. Take a look at the directed graph below. What is the density?
 
 ```{r}
 
@@ -142,7 +142,7 @@ d_graph
 
 ```
 
-First we identify the quantities: $L$ is 8 and $g$ is 5. Why is $L$ 8? Since the graph is directed, a dyad (or two nodes) can have two ties. For example, there is a tie from Jim to Leaf and a tie from Leaf to Jim. If we count up all the arrowheads, we get to 8. Now, let's just plug through the math: $$\frac{L}{g(g-1)} = \frac{8}{5*(5-1)} = \frac{8}{20} = 0.4$$ So, 0.4 of the ties that could occur in this network did occur.
+First, we identify the quantities: $L$ is 8 and $g$ is 5. Why is $L$ 8? Since the graph is directed, a dyad (or two nodes) can have two ties. For example, there is a tie from Jim to Leaf and a tie from Leaf to Jim. If we count up all the arrowheads, we get to 8. Now, let's just plug through the math: $$\frac{L}{g(g-1)} = \frac{8}{5*(5-1)} = \frac{8}{20} = 0.4$$ So, 0.4 of the ties that could occur in this network did occur.
 
 ### Components
 
@@ -198,7 +198,7 @@ comp_graph
 
 ```
 
-To figure it out, just count up the number of separate subgraphs (or different colors of nodes). In this plot, there are 15 components. Note that the components are not all the same. Some are larger than others. In a graph that has different size components, the *first component* is the subgraph (i.e. component) with the most nodes. In this plot, the nodes in the first component are labeled "1". The *second component* of a graph is the component that has the second-most nodes and the *third component* has the third most nodes (and so on). In the plot, what are the *second* and *third* components?
+To figure it out, just count up the number of separate subgraphs (or different colors of nodes). In this plot, there are 15 components. Note that the components are not all the same. Some are larger than others. In a graph that has different-sized components, the *first component* is the subgraph (i.e., component) with the most nodes. In this plot, the nodes in the first component are labeled "1". The *second component* of a graph is the component that has the second-most nodes, and the *third component* has the third-most nodes (and so on). In the plot, what are the *second* and *third* components?
 
 The components of a graph are a useful tool for helping us think conceptually about what our network means. For example, @papachristos2014network conducted a study of homicide, examining how individuals may be disproportionately exposed to violence. Violence often spreads between components through a small number of brokers who connect otherwise isolated factions. Identifying and targeting these brokers or the most violent components can significantly reduce retaliatory violence. Isolated components also offer opportunities for more focused community interventions. By understanding these network structures, law enforcement can prevent the spread of violence and effectively target interventions.
 
@@ -208,7 +208,7 @@ A final question we can ask is how *compact* is the network? In other words, can
 
 To understand diameter, let's set up a definition: A *step* is movement along an edge. Let's think about how this works. For example, take two nodes $A$ and $B$ who are directly connected. How many steps is $A$ from $B$? Since $A$ is directly tied to $B$, the number of steps is 1. Now, take another example where $A$ and $B$ are *not* directly connected. Rather, suppose $A$ is connected to $D$, whom is connected to $C$, whom is connected to $B$, like this: $A-D-C-B$. How many steps is $A$ from $B$? Well, how many edges are there between them? There are 3 edges.
 
-We can extend this to an entire graph by calculating the steps for every pair of nodes (i.e. dyads) in the graph. When we do this, we can define two other terms:
+We can extend this to an entire graph by calculating the steps for every pair of nodes (i.e., dyads) in the graph. When we do this, we can define two other terms:
 
 -   A *shortest path* is the fewest number of steps node $A$ has to take to reach node $B$;
 
@@ -224,7 +224,7 @@ u_graph
 
 ```
 
-To answer this question, we need to first figure out what the paths are, then figure out which is the shortest (i.e. has the fewest edges to traverse). In this plot there are two:
+To answer this question, we need to first figure out what the paths are, then figure out which is the shortest (i.e., has the fewest edges to traverse). In this plot, there are two:
 
 -   $Leaf-Jim-Bob-Tom-Jen$
 -   $Leaf-Bob-Tom-Jen$
@@ -235,7 +235,7 @@ Now, what is the *diameter* of the network? To figure this out, we would identif
 
 #### Directed Graph
 
-Paths with *directed graphs* can be a bit tricky to comprehend due to the directionality of the ties. For example, for how many steps is $A$ from $B$ in this graph, $B \rightarrow D \rightarrow C \rightarrow A$? If we focus on the direction of the ties, then $A$ cannot reach $B$. But, if we **ignore** the direction of the ties, then $A$ is 3 steps from $B$. Often, we ignore the directionality of a network to calculate the diameter. But, in some cases it might not make sense to do so. Just keep this in mind as you are working with different networks as a crime analyst.
+Paths with *directed graphs* can be a bit tricky to comprehend due to the directionality of the ties. For example, how many steps is $A$ from $B$ in this graph, $B \rightarrow D \rightarrow C \rightarrow A$? If we focus on the direction of the ties, then $A$ cannot reach $B$. But, if we **ignore** the direction of the ties, then $A$ is 3 steps from $B$. Often, we ignore the directionality of a network to calculate the diameter. But, in some cases, it might not make sense to do so. Just keep this in mind as you are working with different networks as a crime analyst.
 
 <br>
 
@@ -250,4 +250,4 @@ Paths with *directed graphs* can be a bit tricky to comprehend due to the direct
 
 ## Summary
 
-This chapter focused on how crime analysts can gain an understanding of a network by describing some basic structures. We focused on key network features (size, density, components, and diameter) for gaining insights into relationships and patterns. Examining these properties can help analyst identify areas for targeted interventions. In the next chapters we will begin focusing on a key idea in social network analysis: *centrality*.
+This chapter focused on how crime analysts can gain an understanding of a network by describing some basic structures. We focused on key network features (size, density, components, and diameter) to gain insights into relationships and patterns. Examining these properties can help analysts identify areas for targeted interventions. In the next chapters, we will begin focusing on a key idea in social network analysis: *centrality*.
