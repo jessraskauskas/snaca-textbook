@@ -29,7 +29,7 @@ In the prior chapter, we reviewed why social network analysis is a valuable part
 As discussed in the [introductory chapter](snaca-introduction.html), network science takes **relational structures** as the primary domain of interest. In so doing, research questions take the following forms:
 
 -   How does the network matter?
-    -   Here the network is an *independent variable*. In the case above, the network of shared incidents was an independent variable that influenced views of body-worn cameras.
+    -   Here, the network is an *independent variable*. In the case above, the network of shared incidents was an independent variable that influenced views of body-worn cameras.
 -   What affects the network?
     -   Here, the network is a *dependent variable*. Do younger individuals who are involved in crime have more co-offenders?
 
@@ -44,7 +44,7 @@ The Explanatory model differentiates between two different metaphors for what ne
 
 The Explanatory goal differentiates between what we are trying to understand: *social capital/performance* (what are the benefits of a position? How does it render advantage?), *homogeneity* (why are nodes similar?), and *network structure* (why is the network like this?).
 
-These dimensions give as a 2x3 table where to better classify studies:
+These dimensions give us a 2x3 table to classify studies better:
 
 ```{r, fig.cap = "", out.width = "70%", fig.align="center"}
 knitr::include_graphics( "images/network-theory-table.png" )
@@ -59,14 +59,14 @@ We just covered A LOT of terminology and jargon. Let's unpack each of these and 
 Model: Flow\
 Goal: Social Capital/Performance
 
-This mechanism explains the benefits of social ties as providing resources. That is, individuals are able to capitalize on their ties, and this produces variation in resources. For example, consider the question: why do some individuals avoid recidivism upon reentry into the community after incarceration? Research on desistance highlights the critical role of social support systems in this process. Individuals who can draw on a diverse set of resources---such as employment opportunities, housing, and emotional support---from their social networks are better positioned to navigate the challenges of life post-release. A study by @visher2003transitions found that those with strong, positive social ties, particularly to family and community organizations, were less likely to reoffend, as these connections facilitated access to essential resources and a sense of stability during the reintegration process. Put differently, resources flow through these relationships producing differences in individuals' experiences with reentry.
+This mechanism explains the benefits of social ties as providing resources. That is, individuals are able to capitalize on their ties, and this produces variation in resources. For example, consider the question: why do some individuals avoid recidivism upon reentry into the community after incarceration? Research on desistance highlights the critical role of social support systems in this process. Individuals who can draw on a diverse set of resources---such as employment opportunities, housing, and emotional support---from their social networks are better positioned to navigate the challenges of life post-release. A study by @visher2003transitions found that those with strong, positive social ties, particularly to family and community organizations, were less likely to reoffend, as these connections facilitated access to essential resources and a sense of stability during the reintegration process. Put differently, resources flow through these relationships, producing differences in individuals' experiences with reentry.
 
 ### Contagion
 
 Model: Flow\
 Goal: Homogeneity
 
-This mechanism explains homogeneity among nodes as the result of an "infection" process. That is, individuals become similar due to their exposure within their social network. For example, consider the question: why do some individuals become victims of gun violence? Research suggests that exposure to specific behavioral environments significantly increases the risk of gun violence victimization. In particular, individuals who are embedded in networks with others who have been victims of gun violence are more likely to become victims themselves. This phenomenon can be understood in epidemiological terms, where violence spreads through networks much like a contagious disease. @papachristos2015tragic found that individuals' proximity to others who have been shot dramatically increases their own likelihood of becoming a victim, illustrating the "social contagion" model of gun violence. That is, these individuals become similar (in this case victimization experience) due to the flow of violence through their network.
+This mechanism explains homogeneity among nodes as the result of an "infection" process. That is, individuals become similar due to their exposure within their social network. For example, consider the question: why do some individuals become victims of gun violence? Research suggests that exposure to specific behavioral environments significantly increases the risk of gun violence victimization. In particular, individuals who are embedded in networks with others who have been victims of gun violence are more likely to become victims themselves. This phenomenon can be understood in epidemiological terms, where violence spreads through networks much like a contagious disease. @papachristos2015tragic found that individuals' proximity to others who have been shot dramatically increases their own likelihood of becoming a victim, illustrating the "social contagion" model of gun violence. That is, these individuals become similar (in this case, victimization experience) due to the flow of violence through their network.
 
 ### Cooperation
 
@@ -84,7 +84,7 @@ Nodes respond to or adapt to their environment, and homogeneity is often a conse
 
 ### Theories of Networks
 
-**Network Theory** focuses on networks as an *independent* variable, where the network matters for some outcome. However, many studies focus on the network itself as a *dependent* variable, seeking to understand why a network structure exists as it does and/or how it may change as a consequence of some variable (e.g. an intervention). These studies usually adopt one of the metaphors (i.e. network flow or network coordination) to address the question, "why is the network this way?" For example, @bright2013evolution examine the evolution of a drug trafficking network, analyzing how its structure and function shifted as a result of external pressures such as law enforcement interventions. In this example, the network's evolution is treated as the dependent variable, highlighting the impact of these forces on its adaptability and resilience. Similarly, @rostami2015complexity focus on the complexity of crime network data, investigating how network structure, centrality, and cohesiveness change over time. They also consider how interventions, such as law enforcement actions, influence these changes. Both studies illustrate how thinking of the network as a *dependent* variable offers valuable insights into the adaptability and transformation of networks under various pressures, emphasizing the role of external interventions in shaping network dynamics.
+**Network Theory** focuses on networks as an *independent* variable, where the network matters for some outcome. However, many studies focus on the network itself as a *dependent* variable, seeking to understand why a network structure exists as it does and/or how it may change as a consequence of some variable (e.g., an intervention). These studies usually adopt one of the metaphors (i.e., network flow or network coordination) to address the question, "Why is the network this way?" For example, @bright2013evolution examine the evolution of a drug trafficking network, analyzing how its structure and function shifted as a result of external pressures such as law enforcement interventions. In this example, the network's evolution is treated as the dependent variable, highlighting the impact of these forces on its adaptability and resilience. Similarly, @rostami2015complexity focus on the complexity of crime network data, investigating how network structure, centrality, and cohesiveness change over time. They also consider how interventions, such as law enforcement actions, influence these changes. Both studies illustrate how thinking of the network as a *dependent* variable offers valuable insights into the adaptability and transformation of networks under various pressures, emphasizing the role of external interventions in shaping network dynamics.
 
 ## Putting it all together
 
@@ -104,7 +104,7 @@ knitr::include_graphics( "images/network-theory-table.png" )
 
 -   In a study by @carley2002destabilizing, the authors examined the structure and evolution of the Al Qaeda terrorist network. They identified key nodes and relationships within the network, showing how the removal of certain individuals would impact the network's operational efficiency and adaptability. What are the metaphor(s) used in this example?
 
--   @walker2019misconduct, examined how social networks of police officers influenced patterns of misconduct in the Chicago Police Department. They found that officers who were connected to others with histories of misconduct were more likely to engage in similar behavior, demonstrating how network ties can perpetuate unethical practices within law enforcement. What are the metaphor(s) used in this example?
+-   @walker2019misconduct examined how social networks of police officers influenced patterns of misconduct in the Chicago Police Department. They found that officers who were connected to others with histories of misconduct were more likely to engage in similar behavior, demonstrating how network ties can perpetuate unethical practices within law enforcement. What are the metaphor(s) used in this example?
 
 -   What is the 'social contagion' model of gun violence, and how does it explain victimization patterns?
 
@@ -114,6 +114,6 @@ knitr::include_graphics( "images/network-theory-table.png" )
 
 ## Summary
 
-In this chapter we focused on the role of **theory** in understanding networks. Specifically, we distinguished between "network theories" (which consider networks as a cause) and "theories of networks" (which view networks as an effect). Studies can be classified based on their explanatory model (how networks operate, such as flow or coordination) and their explanatory goal (what the study aims to explain, like social capital or homogeneity). Mechanisms like capitalization, contagion, cooperation, and convergence further explain how networks function in various contexts, such as criminal behavior and social control.
+In this chapter, we focused on the role of **theory** in understanding networks. Specifically, we distinguished between "network theories" (which consider networks as a cause) and "theories of networks" (which view networks as an effect). Studies can be classified based on their explanatory model (how networks operate, such as flow or coordination) and their explanatory goal (what the study aims to explain, like social capital or homogeneity). Mechanisms like capitalization, contagion, cooperation, and convergence further explain how networks function in various contexts, such as criminal behavior and social control.
 
 In the next chapter, we will examine how network data are collected.
