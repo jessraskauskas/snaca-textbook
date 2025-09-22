@@ -37,9 +37,9 @@ To study how police officers' views of body cameras were influenced by those wit
 knitr::include_graphics( "images/young-ready-projection-figure.png" )
 ```
 
-In this network, the nodes are police officers and the edges represent shared incidents. The width of the edges represents the number of shared incidents in that wider edges between two nodes mean that more incidents were shared between those nodes. So if two officers have a thick edge connecting them, it means that they were present at multiple incidents at the same time. This network is the "weighted, unipartite projection" of the bipartite graph.
+In this network, the nodes are police officers, and the edges represent shared incidents. The width of the edges represents the number of shared incidents, in that wider edges between two nodes mean that more incidents were shared between those nodes. So if two officers have a thick edge connecting them, it means that they were present at multiple incidents at the same time. This network is the "weighted, unipartite projection" of the bipartite graph.
 
-*Where did this graph come from?* It was created through a process called **projection**. In this chapter you will learn how to project two-mode graphs to one-mode graphs. By the end of this chapter, you should be able to:
+*Where did this graph come from?* It was created through a process called **projection**. In this chapter, you will learn how to project two-mode graphs to one-mode graphs. By the end of this chapter, you should be able to:
 
 -   Describe how to create a unipartite graph from a bipartite graph.
 -   Explain the difference between *dichotomized* projections and *summation* projections.
@@ -67,7 +67,7 @@ knitr::include_graphics( "images/ch-11-figure-02.jpeg" )
 
 We can see that *A*, *B*, and *C* are connected through the shared edges with node *1*. That is, the edges $L_{A,1}$ and $L_{B,1}$ connect nodes *A* and *B*. The same for edges $L_{B,1}$ and $L_{C,1}$ which connect nodes *B* and *C*.
 
-What about node *2* ?
+What about node *2*?
 
 ```{r, fig.cap = "", out.width = "60%"}
 knitr::include_graphics( "images/ch-11-figure-03.jpeg" )
@@ -95,15 +95,15 @@ That is, the edges $L_{D,3}$ and $L_{D,5}$ connect nodes *3* and *5*. But, nodes
 
 ## Building the Projection
 
-In an influential paper titled *The Duality of Persons and Groups*, @breiger1974duality proved mathematically that we can build the adjacency matrix for each projected network through matrix algebra. (YAY!). If you are unfamiliar with matrix algebra, that is fine. It is simply using mathematical expressions on matrices (e.g. adding two matrices, or multiplying two matrices). Since the bipartite graph represents two nodes sets, we can create two unipartite graphs: a "people" network and a "group" network. The "people" network is the connections between the $N$ nodes and the "group" network is the connections between the $M$ nodes.
+In an influential paper titled *The Duality of Persons and Groups*, @breiger1974duality proved mathematically that we can build the adjacency matrix for each projected network through matrix algebra. (YAY!). If you are unfamiliar with matrix algebra, that is fine. It is simply using mathematical expressions on matrices (e.g., adding two matrices or multiplying two matrices). Since the bipartite graph represents two node sets, we can create two unipartite graphs: a "people" network and a "group" network. The "people" network is the connections between the $N$ nodes, and the "group" network is the connections between the $M$ nodes.
 
-Let's make this more concrete. We create these projections by multiplying an adjacency matrix by it's *transpose*. The <u>transpose</u> of a matrix simply reverses the columns and rows:
+Let's make this more concrete. We create these projections by multiplying an adjacency matrix by its *transpose*. The <u>transpose</u> of a matrix simply reverses the columns and rows:
 
 $$A^T_{ij} = A_{ji}$$
 
 Here, the $T$ in the superscript is used to indicate the *transpose* of the matrix $A$. Note that all we do is switch the columns and rows.
 
-A two-mode $N \times M$ adjacency matrix, can be projected to:
+A two-mode $N \times M$ adjacency matrix can be projected to:
 
 -   A $M \times M$ matrix (ties among $M$ nodes via $N$) and/or
 -   A $N \times N$ matrix (ties among $N$ nodes via $M$)
@@ -120,7 +120,7 @@ Note that our matrix, $A$, has 6 rows and 5 columns. This means it has *order* $
 knitr::include_graphics( "images/ch-11-figure-06.jpeg" )
 ```
 
-Recall, that the transpose of a matrix simply reverses the columns and rows. To get the transpose, imagine rotating the matrix 90 degrees, and then flipping it over. That would give us this:
+Recall that the transpose of a matrix simply reverses the columns and rows. To get the transpose, imagine rotating the matrix 90 degrees and then flipping it over. That would give us this:
 
 ```{r, fig.cap = "", out.width = "60%"}
 knitr::include_graphics( "images/ch-11-figure-07.jpeg" )
@@ -164,7 +164,7 @@ $$A \times A^T = P$$ Let's see how this works by visualizing our example:
 knitr::include_graphics( "images/ch-11-figure-08.jpeg" )
 ```
 
-After multiplication we get:
+After multiplication, we get:
 
 ```{r, fig.cap = "", out.width = "60%"}
 knitr::include_graphics( "images/ch-11-figure-09.jpeg" )
@@ -174,7 +174,7 @@ The product matrix as rows $N \times N$ shows us how people are connected by gro
 
 The values of the matrix show two important things:
 
--   The diagonal cells represents the count of ties that a specific node in $N$ has with nodes in $M$
+-   The diagonal cells represent the count of ties that a specific node in $N$ has with nodes in $M$
 -   The off-diagonal cells count the number of ways that separate nodes in $N$ are connected by nodes in $M$
 
 Let's take a look at each of these points.
@@ -211,7 +211,7 @@ Let's look at another example:
 knitr::include_graphics( "images/ch-11-figure-12.jpeg" )
 ```
 
-Here, *A* and *C* are linked through two nodes in $M$, *1* and *2*. This means that the value for the $P_{A,C}$ cell of the adjacency matrix $P$ (highlighted in green) is 2 and the value for the $P_{C,A}$ cell is also 2 (also highlighted in green). Using the language of "groups" to refer to the $M$ nodes, we can say that *A* and *C* are share membership in 2 groups.
+Here, *A* and *C* are linked through two nodes in $M$, *1* and *2*. This means that the value for the $P_{A,C}$ cell of the adjacency matrix $P$ (highlighted in green) is 2, and the value for the $P_{C,A}$ cell is also 2 (also highlighted in green). Using the language of "groups" to refer to the $M$ nodes, we can say that *A* and *C* share membership in 2 groups.
 
 Note, the off-diagonal cells represent counts of shared nodes in $M$, **not** counts of edges. That is what the diagonal represents.
 
@@ -227,9 +227,9 @@ knitr::include_graphics( "images/ch-11-figure-13.jpeg" )
 
 The product matrix has order $M \times M$ and shows us how groups are connected by people.
 
-As with the product matrix $P$, the values of the product matrix $G$ shows two important things:
+As with the product matrix $P$, the values of the product matrix $G$ show two important things:
 
--   The diagonal cells represents the count of ties that a specific node in $M$ has with nodes in $N$
+-   The diagonal cells represent the count of ties that a specific node in $M$ has with nodes in $N$
 -   The off-diagonal cells count the number of ways that separate nodes in $M$ are connected by nodes in $N$
 
 Let's take a look at each of these points.
@@ -250,7 +250,7 @@ Here is a question. *What network measure does the diagonal give us?* Again, it 
 
 #### Off-Diagonal Cells
 
-The off-diagonal cells count the number of ways that separate nodes in $M$ are connected by nodes in $N$. Using the language of "groups" to refer to the $M$ node set, the off-diagonal represents the count of other groups to whom a node in $M$ is connected.
+The off-diagonal cells count the number of ways that separate nodes in $M$ are connected by nodes in $N$. Using the language of "groups" to refer to the $M$ node set, the off-diagonal represents the count of other groups to which a node in $M$ is connected.
 
 For example, in the figure below, nodes *1* and *2* are linked through 2 nodes in $M$, *A* and *C*. This means the value for the $G_{2,1}$ cell of the adjacency matrix $G$ (highlighted in green) is 2.
 
@@ -258,7 +258,7 @@ For example, in the figure below, nodes *1* and *2* are linked through 2 nodes i
 knitr::include_graphics( "images/ch-11-figure-15.jpeg" )
 ```
 
-Again, note that when we project it forces the matrix to be <u>symmetric</u>. This means that the projection creates an **undirected** unipartite graph. As a result, the value for the $G_{1,2}$ cell of the adjacency matrix $G$ (also highlighted in green) is 2.
+Again, note that when we project, it forces the matrix to be <u>symmetric</u>. This means that the projection creates an **undirected** unipartite graph. As a result, the value for the $G_{1,2}$ cell of the adjacency matrix $G$ (also highlighted in green) is 2.
 
 Note that the off-diagonal cells represent counts of shared nodes in $N$, **not** counts of edges. That is what the diagonal represents.
 
@@ -270,11 +270,11 @@ Let's return to our "people" matrix, which is a projected $N \times N$ network. 
 knitr::include_graphics( "images/ch-11-figure-09.jpeg" )
 ```
 
-Now we are ready to use the tools we have employed in past chapters, right? Hold up. Note that some the off-diagonal cells are greater than 1. This is new territory for us. Now what?
+Now we are ready to use the tools we have employed in past chapters, right? Hold up. Note that some of the off-diagonal cells are greater than 1. This is new territory for us. Now what?
 
 ### Dichotomization
 
-The most common solution is to define any tie greater than 0 in the adjacency matrix as a 1. That is, we would recode values greater than 1 to just be 1. Then, we recode the diagonal elements to be 0. That would then give us an adjacency matrix of 0s and 1s and we could go about our business as crime analysts. This is called **dichotomizing** the adjacency matrix and is the most common way of handling projections. The consequence is a <u>binary</u>, undirected, unipartite graph. What a mouthful!
+The most common solution is to define any tie greater than 0 in the adjacency matrix as a 1. That is, we would recode values greater than 1 to just be 1. Then, we recode the diagonal elements to be 0. That would then give us an adjacency matrix of 0s and 1s, and we could go about our business as crime analysts. This is called **dichotomizing** the adjacency matrix and is the most common way of handling projections. The consequence is a <u>binary</u>, undirected, unipartite graph. What a mouthful!
 
 For the people matrix $P$, we can visualize this process here:
 
@@ -353,7 +353,7 @@ gplot( onemode,
 
 ```
 
-We may be inclined to always keep the network weighted (i.e. not dichotomize the adjacency matrix), but there are far fewer tools for weighted networks. As you continue your work as a crime analyst, be sure to keep in mind what options you have for handling projections.
+We may be inclined to always keep the network weighted (i.e., not dichotomize the adjacency matrix), but there are far fewer tools for weighted networks. As you continue your work as a crime analyst, be sure to keep in mind what options you have for handling projections.
 
 <br>
 
@@ -369,4 +369,4 @@ We may be inclined to always keep the network weighted (i.e. not dichotomize the
 
 ## Summary
 
-This chapter showed how to project bipartite networks into unipartite graphs. Projection is a useful technique for crime analysts to employ when they need to simplify complex relationships for analysis while retaining critical relational insights. By transforming two-mode data (e.g., individuals and groups) into one-mode networks, analysts can focus on relationships within a single node set, such as connections between co-offenders or shared affiliations between groups. We focused our attention also on the distinction between dichotomized and weighted projections, which allow analysts a way to tailor their approach based on whether binary connections or tie strengths are more relevant to the investigation. The tools and concepts presented, including adjacency matrices, matrix multiplication, and the implications of symmetric matrices, provide foundational methods for analyzing complex relational structures. For crime analysts, mastering these techniques enhances their ability to uncover patterns, predict interactions, and inform data-driven decision-making.
+This chapter showed how to project bipartite networks into unipartite graphs. Projection is a useful technique for crime analysts to employ when they need to simplify complex relationships for analysis while retaining critical relational insights. By transforming two-mode data (e.g., individuals and groups) into one-mode networks, analysts can focus on relationships within a single node set, such as connections between co-offenders or shared affiliations between groups. We also focused our attention on the distinction between dichotomized and weighted projections, which allow analysts a way to tailor their approach based on whether binary connections or tie strengths are more relevant to the investigation. The tools and concepts presented, including adjacency matrices, matrix multiplication, and the implications of symmetric matrices, provide foundational methods for analyzing complex relational structures. For crime analysts, mastering these techniques enhances their ability to uncover patterns, predict interactions, and inform data-driven decision-making.
